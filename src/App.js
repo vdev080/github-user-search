@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { ThemeProvider, CssBaseline, AppBar, Toolbar, Typography } from '@mui/material';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { getTheme } from './theme';
+import SearchPage from './pages/SearchPage';
+import UserDetailsPage from './pages/UserDetailsPage';
+import DarkModeToggle from './components/DarkModeToggle';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const theme = getTheme(darkMode ? 'dark' : 'light');
+  const toggleDarkMode = () => setDarkMode(prev => !prev);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" sx={{ flexGrow: 1 }}>
+              GitHub Explorer
+            </Typography>
+            <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+          </Toolbar>
+        </AppBar>
+        <Routes>
+          <Route path="/" element={<SearchPage />} />
+          <Route path="/user/:username" element={<UserDetailsPage />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
