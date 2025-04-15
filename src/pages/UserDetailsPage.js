@@ -33,7 +33,6 @@ const UserDetailsPage = () => {
             sx={{ width: 100, height: 100, mb: 2 }}
           />
           <Typography variant="h5">{userDetails.name || userDetails.login}</Typography>
-          <Typography variant="body1" gutterBottom>ID: {userDetails.id}</Typography>
 
           <Typography variant="h6" sx={{ mt: 3 }}>Public Repositories</Typography>
           <List>
@@ -46,14 +45,17 @@ const UserDetailsPage = () => {
         </>
       )}
 
-      <Fab
+        <Fab
+        variant="extended"
         color="primary"
         aria-label="back"
         sx={{ position: 'fixed', bottom: 20, right: 20 }}
         onClick={() => navigate('/')}
-      >
-        <ArrowBackIcon />
-      </Fab>
+        >
+        <ArrowBackIcon sx={{ mr: 1 }} />
+        Search
+        </Fab>
+
     </Container>
   );
 };
