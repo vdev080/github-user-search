@@ -28,6 +28,58 @@
   color: #61dafb;
 }
 
+.user-details-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.user-details-container .MuiAvatar-root {
+  width: 20%;
+  height: 100%;
+  max-width: 20rem;
+}
+.user-details-container .user-details {
+  margin-left: 4rem;
+}
+.repositories-box {
+  width: 100%;
+}
+.repositories-box h6 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.Search {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+.Search h4 {
+  width: 100%;
+}
+ul.user-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 2rem;
+  grid-column-gap: 2rem;
+  margin-top: 3rem;
+}
+ul.user-list li {
+  border: 1px solid #f0f0f0;
+  border-radius: .5rem;
+  padding: 1rem 1rem;
+}
+ul.user-list li .MuiAvatar-root {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1rem;
+}
+ul.MuiPagination-ul {
+  justify-content: center;
+  margin-top: 2rem;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -5,6 +5,7 @@ import { getTheme } from './theme';
 import SearchPage from './pages/SearchPage';
 import UserDetailsPage from './pages/UserDetailsPage';
 import DarkModeToggle from './components/DarkModeToggle';
+import './App.css';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
